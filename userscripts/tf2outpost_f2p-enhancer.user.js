@@ -16,9 +16,33 @@ Ads.removeAll();
 for (i = 0; i < document.getElementsByClassName('state_toggle').length; i++) {
   document.getElementsByClassName('state_toggle')[i].onclick = function(e) {
     if (this.attributes["data-tipsy"].value == "Close Trade") {
-      if (prompt("Are you sure you want do this?\nYou may not be able to reopen this trade (Free member trade limit is 5!)\n\nTo continue, type \"yes\"") != "yes") {
+      if (tradeno_max.length != 0) {
+        if (prompt("Are you sure you want do this?\nYou will not be able to reopen this trade (You have used " + tradeno_max[0] + " out of " + tradeno_max[1] + " trade slots)\n\nTo continue, type \"yes\"") != "yes") {
+          e.stopPropagation();
+        }
+      } else {
+        alert("The page is still loading. Try again.");
         e.stopPropagation();
       }
     }
   }
 }
+
+// Get number of trades & maximum number of trades
+function loadPath(url, callback) {
+  result = document.createElement("iframe");
+  result.src = url;
+  result.style.height = 0;
+  result.style.width = 0;
+  result.style.display = "none";
+  result.onload = function() {
+    callback();
+  }
+  document.head.appendChild(result); // Attach the iframe element to the document head. (iframe will only load when it is attached)
+}
+function get_tradeno_max() {
+  tradeno_max = result.contentWindow.document.getElementById('modules').getElementsByClassName('title')[0].getElementsByTagName('strong')[0].innerHTML.split('/');
+  document.head.removeChild(result);
+}
+tradeno_max = [];
+loadPath("http://www.tf2outpost.com/new", get_tradeno_max);
