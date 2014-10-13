@@ -19,7 +19,7 @@ if (document.getElementsByClassName('state_toggle').length > 0) {
     document.getElementsByClassName('state_toggle')[i].onclick = function(e) {
       if (this.attributes["data-tipsy"].value == "Close Trade") {
         if (tradeno_max.length != 0) {
-          if (prompt("Are you sure you want do this?\nYou will not be able to reopen this trade (You have used " + tradeno_max[0] + " out of " + tradeno_max[1] + " trade slots)\n\nTo continue, type \"yes\"") != "yes") {
+          if (prompt("You have used " + tradeno_max[0] + " out of " + tradeno_max[1] + " trade slots.\n\nAre you sure you want do this?\n" + (parseInt(tradeno_max[0])>parseInt(tradeno_max[1]) ? "You will not be able to reopen this trade.\n":"") + "To continue, type \"yes\"") != "yes") {
             e.stopPropagation();
           }
         } else {
