@@ -2,7 +2,7 @@
 // @name          TF2 Outpost Auto Bumper
 // @namespace     tf2outpost.com autobumper
 // @include       http://www.tf2outpost.com/trade*
-// @version       2
+// @version       3
 // @grant         none
 // ==/UserScript==
 
@@ -18,7 +18,7 @@ function startReloadWait() {
       setTimeout(function() {
         countdown(remaining - 1);
       }, 1000);
-    })(30 * 60);
+    })(30 * 60 + 3);
   }
 }
 
