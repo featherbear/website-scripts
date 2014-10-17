@@ -2,18 +2,33 @@
 // @name          TF2 Outpost Auto Bumper
 // @namespace     tf2outpost.com autobumper
 // @include       http://www.tf2outpost.com/trade*
+// @version       2
 // @grant         none
 // ==/UserScript==
 
-function Autobumper() {
-  for (var i = 0; i < document.getElementsByClassName("trade_bump").length; i++) {
-    document.getElementsByClassName("trade_bump")[0].click();
+function Autoclick() {
+    if (document.getElementsByClassName("trade_bump").length > 0) document.getElementsByClassName("trade_bump")[0].click();
+  }
+function startReloadWait() {
+  if (location.hash.slice(1) == "auto") {
+    (function countdown(remaining) {
+      if (remaining <= 0)
+        location.reload(true);
+      document.title = "TF2 Outpost / Trades - (Autobump) Page reloading in " + Math.floor(remaining / 60) + "m " + (remaining - Math.floor(remaining / 60) * 60) + "s";
+      setTimeout(function() {
+        countdown(remaining - 1);
+      }, 1000);
+    })(30 * 60);
   }
 }
+
+if (document.getElementsByClassName("trade_bump").length == 0) startReloadWait();
 (document.onload = function Loop() {
-  var rand = Math.floor((Math.random() * 3000) + 1000);
+  if (document.getElementsByClassName("trade_bump").length == 1) startReloadWait();
   setTimeout(function() {
-    Autobumper();
+    Autoclick();
     Loop();
-  }, rand);
+  }, 2000);
 }());
+
+
