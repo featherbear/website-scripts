@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name          TF2 Outpost Auto Bumper
+// @author        bearbear12345
 // @namespace     tf2outpost.com autobumper
 // @include       http://www.tf2outpost.com/trade*
-// @version       3
+// @version       1.2
 // @grant         none
 // ==/UserScript==
 

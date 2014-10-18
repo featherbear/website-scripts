@@ -1,7 +1,10 @@
 // ==UserScript==
 // @name        CSGO Lounge Available Items formatter
+// @description Formats the CSGO Lounge available weapons page to a user-friendly format
+// @author      bearbear12345
 // @namespace   http://csgolounge.com/availableweapons
 // @include     http://csgolounge.com/availableweapons
+// @version     1.0
 // @grant       none
 // ==/UserScript==
 document.title="Available items in CSGO Lounge";

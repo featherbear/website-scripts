@@ -1,7 +1,10 @@
 // ==UserScript==
 // @name        TF2 Outpost Free Member Enhancer
+// @author      bearbear12345
+// @description Creates a more pleasant experience for non-premium TF2Outpost members
 // @namespace   tf2outpost f2p_enhancer
 // @include     http://www.tf2outpost.com*
+// @version     1.0
 // @grant       none
 // ==/UserScript==
 
