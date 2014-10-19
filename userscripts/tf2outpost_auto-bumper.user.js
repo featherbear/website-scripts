@@ -19,7 +19,7 @@ function startReloadWait() {
       setTimeout(function() {
         countdown(remaining - 1);
       }, 1000);
-    })(30 * 60 + 3);
+    })(30 * 60 + 30);
   }
 }
 
